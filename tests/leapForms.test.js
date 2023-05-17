@@ -26,6 +26,7 @@ exports.leapForms = class leapForms {
         await this.page.getByText('Male', { exact: true }).click();
         await this.page.getByPlaceholder('Mobile Number').click();
         await this.page.getByPlaceholder('Mobile Number').fill('2223332212');
+        await this.page.waitForTimeout(1000);
         await this.page.locator('#dateOfBirth').click();
         await this.page.locator('#dateOfBirthInput').click();
         await this.page.getByRole('combobox').nth(1).selectOption('1960');
@@ -38,7 +39,7 @@ exports.leapForms = class leapForms {
         await this.page.getByText('Music').click();
         await this.page.getByPlaceholder('Current Address').click();
         await this.page.getByPlaceholder('Current Address').fill('Sydney, Australia');
-            
+        await expect(this.page.getByText('Practice Form').first(), 'Practice Form').toBeVisible();
         
 
     }

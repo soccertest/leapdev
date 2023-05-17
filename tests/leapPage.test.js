@@ -23,6 +23,7 @@ exports.leapPage = class leapPage {
         await this.page.getByPlaceholder('Password').fill('Testing@123!');
         await this.page.getByRole('button', { name: 'Login' }).click();
         await expect(this.page.getByText('leapdevsydney2023'), 'leapdevsydney2023').toBeVisible();
+        await this.page.waitForTimeout(1000);
         await expect(this.page.getByRole('button', { name: 'Log out' }), 'Log out').toBeVisible();
         await this.page.getByRole('button', { name: 'Log out' }).click();
 
@@ -32,6 +33,7 @@ exports.leapPage = class leapPage {
         await this.page.getByPlaceholder('UserName').press('Tab');
         await this.page.getByPlaceholder('Password').fill('Password');
         await this.page.getByRole('button', { name: 'Login' }).click();
+        await this.page.waitForTimeout(1000);
         await expect(this.page.getByText('Invalid username or password!'), 'Invalid username or password!').toBeVisible();
 
          //Incorrect Username & Incorrect Password
@@ -43,6 +45,7 @@ exports.leapPage = class leapPage {
         await this.page.getByPlaceholder('Password').fill('Testing@123!');
         await this.page.getByRole('button', { name: 'Login' }).click();
         await this.page.getByText('Welcome,Login in Book StoreUserName : Password : LoginNew UserInvalid username o').click();
+        await this.page.waitForTimeout(1000);
         await expect(this.page.getByText('Invalid username or password!'), 'Invalid username or password!').toBeVisible();
 
         //Incorrect Username & Incorrect Password
@@ -51,6 +54,7 @@ exports.leapPage = class leapPage {
         await this.page.getByPlaceholder('UserName').press('Tab');
         await this.page.getByPlaceholder('Password').fill('test');
         await this.page.getByRole('button', { name: 'Login' }).click();
+        await this.page.waitForTimeout(1000);
         await expect(this.page.getByText('Invalid username or password!'), 'Invalid username or password!').toBeVisible();
 
 

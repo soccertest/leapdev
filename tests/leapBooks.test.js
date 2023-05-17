@@ -17,11 +17,17 @@ exports.leapBooks = class leapBooks {
         await this.page.goto('https://demoqa.com/books');
         await this.page.getByText('Image', { exact: true }).click();
         await this.page.getByText('Title').click();
+        await this.page.waitForTimeout(1000);
         await this.page.getByRole('columnheader', { name: 'Title' }).click();
+        await this.page.waitForTimeout(1000);
         await this.page.getByText('Author').click();
+        await this.page.waitForTimeout(1000);
         await this.page.getByRole('columnheader', { name: 'Author' }).click();
+        await this.page.waitForTimeout(1000);
         await this.page.getByRole('columnheader', { name: 'Publisher' }).click();
+        await this.page.waitForTimeout(1000);
         await this.page.getByRole('columnheader', { name: 'Publisher' }).click();
+        await this.page.waitForTimeout(1000);
         await this.page.getByRole('link', { name: 'Programming JavaScript Applications' }).click({
             button: 'right'
         });
@@ -46,6 +52,9 @@ exports.leapBooks = class leapBooks {
         await this.page.getByRole('link', { name: 'Eloquent JavaScript, Second Edition' }).click({
             button: 'right'
         });
+        await this.page.waitForTimeout(1000);
+
+        await expect(this.page.getByText('Book Store').first()).toBeVisible();
 
 
 
